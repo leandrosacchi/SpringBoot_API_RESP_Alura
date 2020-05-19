@@ -19,9 +19,16 @@ public class TopicoController {
 	private TopicoRepository tr;
 	
 	@GetMapping(value = "/topicos")
-	public ResponseEntity<List<TopicoDto>> listaTopicos() {
+	public ResponseEntity<List<TopicoDto>> listaTopicos(String nomeCurso) {
+		if (nomeCurso == null) {
 		return ResponseEntity.ok().body(TopicoDto.converter(tr.findAll()));
+		} else {
+			return ResponseEntity.ok().body(TopicoDto.converter(tr.findByCursoNomeContaining(nomeCurso)));
+		}
 	}
+	
+	
+	
 //	
 //	@PostMapping(value = "/topicos")
 //	public ResponseEntity<T> save(){
