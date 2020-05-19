@@ -33,6 +33,25 @@ public class TopicoDto {
 	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+
+	public void setDataCriacao(LocalDateTime dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
 
 
 	public static List<TopicoDto> converter(List<Topico> topicos) {		
