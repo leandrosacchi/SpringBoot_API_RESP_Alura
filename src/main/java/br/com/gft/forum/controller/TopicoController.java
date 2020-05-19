@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.gft.forum.controller.dto.DetalhesTopicoDto;
 import br.com.gft.forum.controller.dto.TopicoDto;
 import br.com.gft.forum.controller.form.TopicoForm;
 import br.com.gft.forum.model.Topico;
@@ -51,6 +52,12 @@ public class TopicoController {
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		tr.deleteById(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping(value="/{id}")
+	public ResponseEntity<DetalhesTopicoDto> consultarTopico(@PathVariable Long id){
+		return ResponseEntity.ok().body(new DetalhesTopicoDto(tr.findById(id).get()));
+
 	}
 		
 	

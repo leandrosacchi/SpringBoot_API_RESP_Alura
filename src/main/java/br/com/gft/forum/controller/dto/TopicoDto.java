@@ -58,6 +58,5 @@ public class TopicoDto {
 		return topicos.stream().map(TopicoDto::new).collect(Collectors.toList());
 	}
 	
-	
-	
+		
 }
