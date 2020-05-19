@@ -46,6 +46,13 @@ public class TopicoController {
 		Topico topico = form.converter(cr);
 		tr.save(topico);
 		return ResponseEntity.created(uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri()).body(new TopicoDto(topico));
-	}	
+	}
+	
+	@DeleteMapping(value="/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
+		tr.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+		
 	
 }
